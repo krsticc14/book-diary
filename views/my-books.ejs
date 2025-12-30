@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books Diary</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="hero"> <h1>My Books Diary</h1> </header>
+<div class="container">
+<% books.forEach(book => { %>
+    <div class="book-card">
+    <div>
+        <h3><%= book.title %></h3>
+        <p>Author: <%= book.author || "Unknown" %></p>
+        <p>Notes: <%= book.notes || "No notes yet" %></p>
+    </div>
+    <form action="/delete/<%= book.id %>" method="POST">
+        <button class="danger" type="submit">Delete</button>
+    </form>
+    <div>
+        <h3><%= book.title %></h3>
+        <p><%= book.author %></p>
+        <form action="/notes/<%= book.id %>" method="POST" class="note-form">
+            <textarea name="notes" rows="3" placeholder="Write your notes"><%= book.notes || "" %></textarea>
+            <button type="submit">Add Notes</button>
+        </form>
+    </div>
+    </div>
+    <% }); %>
+    <a href="/">Back</a>
+    </div>
+    </body>
+    <footer class="footer">
+        <p>Book Diary - built by Aleksandar Krstić © <span id="year"></span></p>
+    </footer>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    </html>

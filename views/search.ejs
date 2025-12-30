@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero"> <h1>Your Books</h1> </header>
+     <div class="container">
+    <% books.forEach(book => { %>
+        <div class="book-card">
+        <div> 
+            <h3><%=book.title %></h3>
+            <p>Author: <%= book.author_name ? book.author_name[0] : "Unknown" %></p>
+            <p>First published: <%= book.first_publish_year %> || "N/A" %></p>
+        </div>
+        <form action="/add-book" method="POST">
+            <input type="hidden" name="title" value="<%= book.title %>">
+            <input type="hidden" name="author" value="<%= book.author_name ? book.author_name[0] : "Unknown" %>">
+            <input type="hidden" name="olid" value="<%= book.key %>">
+            <button class="primary" type="submit">Add to Diary</button>
+        </form>
+        </div>
+        <% }) %>
+        <a href="/">Back to Home Page</a>
+    </div>
+    <footer class="footer">
+        <p>Book Diary - built by Aleksandar Krstić © <span id="year"></span></p>
+    </footer>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

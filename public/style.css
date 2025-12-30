@@ -1,0 +1,210 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: url("/images/background.webp") repeat;
+    background-size: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0, 10px, 30px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+:root {
+    --accent: #4A90E2;
+    --text: #333;
+}
+
+h1, h2, h3 {
+    color: var(--accent);
+}
+
+p {
+    color: var(--text);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1, h2, book.title {
+    font-family: "Merriweather", serif;
+}
+
+.hero {
+    background: url("/images/books.jpg") center/cover no-repeat;
+    padding: 70px 20px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 24px;
+    position: relative;
+    min-height: 100px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.255)
+    );
+}
+
+.hero h1 {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 600px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.book-card {
+    background: #ffffff;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.book-card h3{
+    margin: 0 0 8px 0;
+    font-family: "Merriweather", serif;
+}
+
+.book-card p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.book-card form {
+    margin-top: 10px;
+}
+
+.book-card button {
+    background: var(--accent, #4A90E2);
+    color: white;
+    border: none;
+    padding: 8px, 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.book-card button:hover {
+    background: darken(var(--accent, #4A90E2), 10%);
+}
+
+button {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button.primary {
+    background: #3b82f6;
+    color:white;
+}
+
+button.danger {
+    background: #ef4444;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    .book-card {
+        padding: 12px;
+    }
+}
+
+.hero h1, .hero p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 18px 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 4px, 0;
+    font-family: "Lora", serif;
+}
+
+.note-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-form textarea {
+  resize: vertical;
+  min-height: 60px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: "Lora", serif;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.note-form button {
+  align-self: flex-start;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.note-form button:hover {
+  background: #357ABD;
+}

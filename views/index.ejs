@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Diary</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+    <header class="hero"> <h1>Search for a Book</h1> <p>Track your reading journey and favourite books</p></header>
+    <div class="container">
+    <div class="book-card">
+    <form action="/search" method="GET">
+        <input type="text" name="q" placeholder="Book title or author" required autocomplete="off">
+        <button type="submit">Search</button>
+    </form>
+    </div>
+    <a href="/my-books">Go to My Books Diary</a>
+    </div>
+    </div> 
+    <footer class="footer">
+        <p>Book Diary - built by Aleksandar Krstić © <span id="year"></span></p>
+    </footer>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
