@@ -4,6 +4,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const db = new Pool({
-   connectionString: process.env.DATABASE_URL, // use the URL
+   connectionString: process.env.DATABASE_URL, 
   ssl: { rejectUnauthorized: false },
 });
+
+db.connect()
+  .then(() => console.log('Database connected successfully!'))
+  .catch((err) => console.error('Database connection failed', err));
