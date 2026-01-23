@@ -10,7 +10,7 @@ export const db = new Pool({
 
 async function createTable() {
   try {
-    await Pool.query(`
+    await pool.query(`
       CREATE TABLE IF NOT EXISTS books (
         id SERIAL PRIMARY KEY,
         title TEXT(255) NOT NULL,
