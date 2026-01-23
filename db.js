@@ -20,7 +20,7 @@ async function createTable() {
         cover_url TEXT,
         notes TEXT,
         rating INTEGER,
-        date_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         cover_id INTEGER
       );
     `);
