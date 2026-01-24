@@ -30,6 +30,20 @@ async function createTable() {
     console.error("❌ Error creating table:", err);
   }
 }
+async function fixSchema() {
+  try {
+    await db.query(`
+      ALTER TABLE books
+      ADD COLUMN IF NOT EXISTS date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+    `);
+
+    console.log("✅ Column date_added ensured!");
+  } catch (err) {
+    console.error("❌ Schema update failed:", err);
+  }
+}
+
+fixSchema();
 
 createTable();
 
