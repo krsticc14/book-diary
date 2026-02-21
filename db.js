@@ -1,13 +1,10 @@
-import pkg from "pg";
-const { Pool } = pkg;
+import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const db = new Pool({
-  connectionString: process.env.DB_URL,
-  ssl: { rejectUnauthorized: false },
-});
+export const supabase =  createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+);
 
-db.connect()
-  .then(() => console.log("Database connected successfully!"))
-  .catch((err) => console.error("Database connection failed", err));
+console.log("Supabase client created successfully.");
