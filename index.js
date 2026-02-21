@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
-import { db } from './db.js';
+import { supabase } from './db.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
